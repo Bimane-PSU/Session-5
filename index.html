@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot Teman - AI Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Header -->
+        <div class="chat-header">
+            <div class="bot-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="bot-info">
+                <h2>ChatBot Teman</h2>
+                <p class="status" id="status">Online</p>
+            </div>
+            <div class="settings-btn" onclick="toggleSettings()">
+                <i class="fas fa-cog"></i>
+            </div>
+        </div>
+
+        <!-- Settings Panel -->
+        <div class="settings-panel" id="settingsPanel">
+            <div class="settings-content">
+                <h3>🔐 Keamanan & Setup</h3>
+                <div class="info-section">
+                    <div class="info-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>API Key Aman</h4>
+                        <p>API Key sekarang disimpan di file <code>.env</code> untuk keamanan maksimal!</p>
+                    </div>
+                    
+                    <div class="setup-steps">
+                        <h4>📋 Cara Setup:</h4>
+                        <ol>
+                            <li>Copy file <code>.env.example</code> menjadi <code>.env</code></li>
+                            <li>Edit file <code>.env</code> dan isi <code>GEMINI_API_KEY</code></li>
+                            <li>Jalankan melalui web server (XAMPP/WAMP/LAMP)</li>
+                            <li>Refresh halaman ini</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="api-help">
+                        <p><i class="fas fa-info-circle"></i> Dapatkan API Key gratis di <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a></p>
+                    </div>
+                </div>
+                
+                <button onclick="checkApiConnection()" class="test-btn">
+                    <i class="fas fa-plug"></i> Test Koneksi
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat Messages Area -->
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>Halo! Aku adalah ChatBot Teman mu 😊<br>
+                    Sebelum kita ngobrol, jangan lupa masukkan API Key Gemini kamu di pengaturan ya! 
+                    <br><br>Aku siap jadi teman ngobrol yang asik nih! 🎉</p>
+                </div>
+                <div class="message-time">
+                    <span class="time-stamp"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Typing Indicator -->
+        <div class="typing-indicator" id="typingIndicator" style="display: none;">
+            <div class="message-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="typing-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input">
+            <div class="input-container">
+                <input type="text" id="messageInput" placeholder="Ketik pesan kamu di sini..." onkeypress="handleKeyPress(event)">
+                <button onclick="sendMessage()" id="sendBtn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

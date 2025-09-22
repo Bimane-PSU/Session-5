@@ -1,0 +1,23 @@
+# Environment variables - JANGAN COMMIT!
+.env
+
+# Cache dan temporary files
+*.tmp
+*.cache
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+error.log
+
+# Node modules (jika menggunakan Node.js nantinya)
+node_modules/
+
+# Build outputs
+dist/
+build/
